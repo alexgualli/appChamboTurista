@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>GAD CHAMBO</ion-title>
+    </ion-toolbar>
+    <ion-searchbar placeholder="Buscar Categoria..." [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()">
+    </ion-searchbar>
+</ion-header>
+
+
+<ion-content>
+    
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-item *ngFor="let category of categories">
+
+            <ion-icon slot="end" *ngIf="category.nombre == 'deporte'" name="football-outline"></ion-icon>
+            <ion-icon slot="end" *ngIf="category.nombre == 'cultura'" name="beer-outline"></ion-icon>
+            <ion-icon slot="end" *ngIf="category.nombre == 'gastronomia'" name="restaurant-outline"></ion-icon>
+            <ion-icon slot="end" *ngIf="category.nombre == 'naturaleza'" name="rose-outline"></ion-icon>
+            <ion-icon slot="end" *ngIf="category.nombre == 'salud'" name="pulse-outline"></ion-icon>
+
+            <ion-toolbar color="light">                
+    
+                <ion-buttons slot="primary">
+                    <ion-button color="secondary" routerLink="/places/{{category.id}}">
+                        <ion-icon slot="icon-only" name="eye"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+                <ion-title style="text-transform: capitalize;">{{ category.nombre }}</ion-title>
+            </ion-toolbar>
+
+           
+        </ion-item>
+    </ion-list>
+</ion-content>

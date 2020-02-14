@@ -1,0 +1,35 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start" color="primary">
+        <ion-back-button defaultHref="/home"> </ion-back-button>
+      </ion-button>
+      <ion-title color="primary" style="text-transform: capitalize;">Nueva Categoria</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="myForm" #form="ngForm" (ngSubmit)="addCategory()">
+      <ion-grid>
+          <ion-row color="primary" justify-content-center>
+              <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                  <div style="text-align: center;">
+                      <h3>Añadir Categoria</h3>
+                  </div>
+                  <div padding>
+                    <ion-item>
+                      <!--/ion-icon> name="person" item-start></ion-icon-->
+                      <ion-input formControlName="name"  type="text"  required></ion-input>
+                    </ion-item>                     
+                  </div>
+                  <br><br>
+                  <div padding>
+                      <ion-button color="primary" size="large" type="submit" [disabled]="form.invalid" expand="block">
+                          Añadir</ion-button>
+                  </div>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </form>
+</ion-content>

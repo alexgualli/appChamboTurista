@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start" color="primary">
+        <ion-back-button defaultHref="/home"> </ion-back-button>
+      </ion-button>
+      <ion-title color="primary" style="text-transform: capitalize;">registro</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row color="primary" justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <!--<img class="sky" alt="The sky above the ocean" src="../../assets/img/icon.png" />-->
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <form [formGroup]="myForm" (ngSubmit)="createUser()">
+    <ion-list>
+      <ion-item>
+        <!--/ion-icon> name="person" item-start></ion-icon-->
+        <ion-label position="floating" stacked>Nombres Completo</ion-label>
+        <ion-input formControlName="firstName"  type="text"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <!--/ion-icon> name="person" item-start></ion-icon-->
+        <ion-label position="floating" stacked>Apellidos Completo</ion-label>
+        <ion-input formControlName="lastName"  type="text"  required></ion-input>
+      </ion-item>
+      <ion-item>
+        <!--/ion-icon> name="mail" item-start></ion-icon-->
+        <ion-label position="floating" stacked>Correo electronico:</ion-label>
+        <ion-input formControlName="emailAddress" required="required"  type="email"  required></ion-input>
+      </ion-item>
+        <ion-item>
+          <!--/ion-icon> name="eye" item-start></ion-icon-->
+          <ion-label position="floating" stacked>Contraseña:</ion-label>
+          <ion-input formControlName="password" type="password"  required></ion-input>
+        </ion-item>
+        <ion-item>
+          <!--/ion-icon> name="eye" item-start></ion-icon-->
+          <ion-label position="floating" stacked>Confirmar contraseña:</ion-label>
+          <ion-input formControlName="passwordConfirmation" type="password"  required></ion-input>
+        </ion-item>
+      
+    </ion-list>
+    <div padding>
+      <ion-button expand="block" type="submit">Registrarse</ion-button>
+    </div>
+  </form>
+</ion-content>
+<ion-row justify-content-center>
+  ¿Ya tienes una cuenta? <span class="sign" routerLink='/login'>Ingresar</span>
+</ion-row>

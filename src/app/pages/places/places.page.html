@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start" color="primary">
+        <ion-back-button defaultHref="/home"> </ion-back-button>
+      </ion-button>
+      <ion-title color="primary" style="text-transform: capitalize;">turismo {{ category.nombre }}</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item-sliding *ngFor="let place of places">
+    <ion-card color="light">
+      <ion-toolbar color="light">
+        <ion-buttons slot="primary">
+          <ion-button color="secondary" routerLink="/placesDetails/{{ place.id }}">
+            <ion-icon slot="icon-only" name="eye"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title style="text-transform: capitalize;">{{ place.nombre }}</ion-title>
+      </ion-toolbar>
+      <ion-card-content>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-item-sliding>
+
+</ion-content>

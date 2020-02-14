@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button slot="start" color="primary">
+        <ion-back-button> </ion-back-button>
+      </ion-button>
+      <ion-title color="primary" style="text-transform: capitalize;">Agregar lugar turistico</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>Porfavor ingrese todos los datos</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombre del Lugar</ion-label>
+    <ion-input type="text" [(ngModel)]="nombre" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Descripcion</ion-label>
+    <ion-input type="text" [(ngModel)]="descripcion" required></ion-input>
+  </ion-item>
+
+
+
+  <ion-button *ngIf="descripcion" (click)="addPoint()" size="large" color="medium">
+    <font style="align-content: middle;">
+      <font style="align-content: middle;">
+        <ion-icon name="man-outline"></ion-icon>
+      </font>
+    </font>
+  </ion-button>
+
+
+
+
+  <ion-button *ngIf="insert" color="primary" expand="block" (click)="addPlace()">Añadir Lugar</ion-button>
+
+
+
+</ion-content>
